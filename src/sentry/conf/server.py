@@ -1215,6 +1215,19 @@ SENTRY_DEFAULT_ROLE = 'member'
 # in the chain (they still require the appropriate scope).
 SENTRY_ROLES = (
     {
+        'id': 'guest',
+        'name': 'Guest',
+        'desc': 'Guests can view and search events but not actually act on them.',
+        'scopes': set(
+            [
+                'event:read',
+                'project:read',
+                'org:read',
+                'member:read',
+                'team:read',
+            ]
+        ),
+    }, {
         'id': 'member',
         'name': 'Member',
         'desc': 'Members can view and act on events, as well as view most other data within the organization.',
